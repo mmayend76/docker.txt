@@ -1,0 +1,37 @@
+#/!bin/bash
+
+## Author: Moses , Email : mmayend76
+
+ ##Date: June 25-2022
+
+...........Docker installation on Centos 7 and Ubuntu.....
+
+echo1 "Clean up the system"
+
+if [$? -eq 0]
+
+then "these packages are installed"
+sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+
+sudo yum install -y yum-utils
+
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo yum install docker-ce docker-ce-cli containerd.io
+
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+
+sleep2
+
+echo2 "Setup the docker repository"
+if [$?-eq 0]
+then "we will install yum-utils"
+else
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sleep2
+
+echo3 "Installation of the docker engine"
+if [$? -eq 0]
